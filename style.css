@@ -1,0 +1,5094 @@
+/* ============================================================
+TESLA PRIME X
+PREMIUM FUTURISTIC AUTOMOTIVE + FINTECH UI
+
+PART 1/7
+FOUNDATION SYSTEM
+============================================================ */
+
+
+/* =========================
+GLOBAL DESIGN TOKENS
+========================= */
+
+:root {
+
+--black:#020202;
+--black-soft:#080808;
+--black-panel:#111111;
+
+--white:#ffffff;
+--silver:#c9c9c9;
+--muted:#858585;
+
+--red:#e82127;
+--red-light:#ff3b42;
+--red-dark:#a80f14;
+
+--green:#36e58a;
+--yellow:#f2c94c;
+
+--border:rgba(255,255,255,.12);
+--border-soft:rgba(255,255,255,.06);
+
+--glass:blur(22px);
+
+--shadow:
+0 30px 80px rgba(0,0,0,.55);
+
+--red-glow:
+0 0 45px rgba(232,33,39,.35);
+
+--ease:
+cubic-bezier(.22,1,.36,1);
+
+}
+
+
+/* =========================
+RESET
+========================= */
+
+
+*,
+*::before,
+*::after{
+
+box-sizing:border-box;
+margin:0;
+padding:0;
+
+}
+
+
+html{
+
+scroll-behavior:smooth;
+scroll-padding-top:90px;
+
+}
+
+
+body{
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(232,33,39,.12),
+transparent 40%
+),
+
+linear-gradient(
+180deg,
+#020202,
+#080808
+);
+
+color:var(--white);
+
+font-family:
+
+Inter,
+Helvetica,
+Arial,
+sans-serif;
+
+line-height:1.6;
+
+overflow-x:hidden;
+
+-webkit-font-smoothing:antialiased;
+
+}
+
+
+/* TEXT SELECTION */
+
+::selection{
+
+background:var(--red);
+color:white;
+
+}
+
+
+
+/* =========================
+MEDIA ELEMENTS
+========================= */
+
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+
+button,
+input,
+textarea,
+select{
+
+font-family:inherit;
+
+}
+
+
+button{
+
+cursor:pointer;
+
+}
+
+
+a{
+
+text-decoration:none;
+color:inherit;
+
+}
+
+
+
+/* =========================
+PAGE FADE IN
+========================= */
+
+
+body{
+
+opacity:0;
+
+animation:
+
+pageEntrance 1s var(--ease) forwards;
+
+}
+
+
+
+@keyframes pageEntrance{
+
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+
+to{
+
+opacity:3;
+transform:none;
+
+}
+
+}
+
+
+
+/* =========================
+SMOOTH SCROLL REVEAL
+========================= */
+
+
+.reveal{
+
+opacity:0;
+
+transform:
+
+translateY(45px)
+scale(.97);
+
+
+filter:blur(10px);
+
+
+transition:
+
+opacity .8s var(--ease),
+transform .8s var(--ease),
+filter .8s var(--ease);
+
+}
+
+
+
+.reveal.active{
+
+opacity:1;
+
+transform:none;
+
+filter:blur(0);
+
+}
+
+
+
+/* =========================
+STAGGER ANIMATION
+========================= */
+
+
+.stagger > *{
+
+opacity:0;
+
+transform:
+
+translateY(30px);
+
+}
+
+
+
+.stagger.active > *{
+
+opacity:1;
+
+transform:none;
+
+transition:
+
+.7s var(--ease);
+
+}
+
+
+.stagger.active > *:nth-child(1){
+
+transition-delay:.1s;
+
+}
+
+
+.stagger.active > *:nth-child(2){
+
+transition-delay:.2s;
+
+}
+
+
+.stagger.active > *:nth-child(3){
+
+transition-delay:.3s;
+
+}
+
+
+.stagger.active > *:nth-child(4){
+
+transition-delay:.4s;
+
+}
+
+
+
+/* =========================
+PREMIUM SECTION SYSTEM
+========================= */
+
+
+.section{
+
+padding:
+
+120px 0;
+
+position:relative;
+
+}
+
+
+
+.container{
+
+width:min(92%,1300px);
+
+margin:auto;
+
+}
+
+
+
+.section-title{
+
+font-size:
+
+clamp(35px,5vw,70px);
+
+font-weight:900;
+
+letter-spacing:-3px;
+
+line-height:1;
+
+}
+
+
+
+.section-title span{
+
+color:var(--red);
+
+text-shadow:
+
+0 0 30px rgba(232,33,39,.3);
+
+}
+
+
+
+.section-text{
+
+max-width:650px;
+
+margin-top:20px;
+
+color:var(--muted);
+
+font-size:16px;
+
+}
+
+
+
+/* =========================
+GLASS PANEL SYSTEM
+========================= */
+
+
+.glass{
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+var(--glass);
+
+
+box-shadow:
+
+var(--shadow);
+
+}
+
+
+
+/* =========================
+GLOW EFFECT
+========================= */
+
+
+.red-glow{
+
+box-shadow:
+
+var(--red-glow);
+
+}
+
+
+
+/* =========================
+PERFORMANCE OPTIMIZATION
+========================= */
+
+
+.vehicle-card,
+.membership-card,
+.investment-card,
+.feature-card,
+button{
+
+will-change:transform;
+
+}
+
+
+
+/* =========================
+REDUCED MOTION SUPPORT
+========================= */
+
+
+@media(prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+
+animation:none!important;
+
+transition:none!important;
+
+scroll-behavior:auto!important;
+
+}
+
+}
+
+/* ============================================================
+TESLA PRIME X
+PART 2/7
+PREMIUM NAVBAR + MOBILE MENU + HERO
+============================================================ */
+
+
+/* =========================
+PREMIUM NAVBAR
+========================= */
+
+
+.prime-nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+height:82px;
+
+z-index:9999;
+
+transition:
+
+background .4s var(--ease),
+border .4s ease,
+backdrop-filter .4s ease;
+
+}
+
+
+
+.prime-nav.scrolled{
+
+background:
+
+rgba(0,0,0,.72);
+
+
+backdrop-filter:
+
+blur(22px);
+
+
+-webkit-backdrop-filter:
+
+blur(22px);
+
+
+border-bottom:
+
+1px solid var(--border);
+
+
+box-shadow:
+
+0 20px 60px rgba(0,0,0,.5);
+
+}
+
+
+
+.nav-container{
+
+width:min(92%,1300px);
+
+height:100%;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+}
+
+
+
+/* LOGO */
+
+
+.logo{
+
+font-size:20px;
+
+font-weight:900;
+
+letter-spacing:4px;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+
+
+.logo span{
+
+color:var(--red);
+
+text-shadow:
+
+0 0 25px rgba(232,33,39,.8);
+
+}
+
+
+
+/* NAV LINKS */
+
+
+.nav-links{
+
+display:flex;
+
+align-items:center;
+
+gap:35px;
+
+}
+
+
+
+.nav-links a{
+
+font-size:13px;
+
+color:#999;
+
+position:relative;
+
+transition:.35s ease;
+
+}
+
+
+
+.nav-links a:hover{
+
+color:white;
+
+}
+
+
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-10px;
+
+height:2px;
+
+width:0;
+
+background:var(--red);
+
+box-shadow:
+
+0 0 15px var(--red);
+
+transition:.35s var(--ease);
+
+}
+
+
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+
+
+/* NAV BUTTONS */
+
+
+.nav-buttons{
+
+display:flex;
+
+gap:12px;
+
+}
+
+
+
+.login-btn,
+.signup-btn{
+
+padding:
+
+12px 24px;
+
+border-radius:8px;
+
+font-size:12px;
+
+font-weight:700;
+
+transition:.35s var(--ease);
+
+}
+
+
+
+.login-btn{
+
+background:
+
+rgba(255,255,255,.03);
+
+border:
+
+1px solid var(--border);
+
+}
+
+
+
+.login-btn:hover{
+
+background:white;
+
+color:black;
+
+}
+
+
+
+.signup-btn{
+
+background:
+
+var(--red);
+
+box-shadow:
+
+0 10px 40px rgba(232,33,39,.35);
+
+}
+
+
+
+.signup-btn:hover{
+
+transform:
+
+translateY(-3px);
+
+box-shadow:
+
+0 20px 70px rgba(232,33,39,.55);
+
+}
+
+
+
+/* =========================
+MOBILE MENU
+========================= */
+
+
+.menu-toggle{
+
+display:none;
+
+width:42px;
+
+height:42px;
+
+border:
+
+1px solid var(--border);
+
+border-radius:8px;
+
+background:
+
+rgba(255,255,255,.05);
+
+}
+
+
+
+.menu-toggle span{
+
+display:block;
+
+width:20px;
+
+height:2px;
+
+background:white;
+
+margin:5px auto;
+
+transition:.3s;
+
+}
+
+
+
+.mobile-menu{
+
+display:none;
+
+position:fixed;
+
+top:82px;
+
+left:0;
+
+width:100%;
+
+padding:30px;
+
+background:
+
+rgba(0,0,0,.92);
+
+backdrop-filter:
+
+blur(20px);
+
+border-bottom:
+
+1px solid var(--border);
+
+}
+
+
+
+.mobile-menu a{
+
+display:block;
+
+padding:15px 0;
+
+color:#aaa;
+
+border-bottom:
+
+1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+.mobile-menu.active{
+
+display:block;
+
+}
+
+
+
+/* =========================
+HERO SECTION
+========================= */
+
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+
+background:
+
+
+linear-gradient(
+90deg,
+#000 10%,
+transparent 80%
+),
+
+
+radial-gradient(
+
+circle at 80% 45%,
+
+rgba(232,33,39,.25),
+
+transparent 35%
+
+);
+
+}
+
+
+
+.hero-grid{
+
+position:absolute;
+
+inset:0;
+
+opacity:.12;
+
+
+background-image:
+
+
+linear-gradient(
+rgba(255,255,255,.08) 1px,
+transparent 1px
+),
+
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.08) 1px,
+transparent 1px
+);
+
+
+background-size:
+
+80px 80px;
+
+}
+
+
+
+.hero-content{
+
+position:relative;
+
+z-index:3;
+
+width:min(92%,1300px);
+
+margin:auto;
+
+padding-top:90px;
+
+}
+
+
+
+.hero-label{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+color:#aaa;
+
+text-transform:uppercase;
+
+margin-bottom:25px;
+
+}
+
+
+
+.hero-label::before{
+
+content:"";
+
+width:35px;
+
+height:1px;
+
+background:var(--red);
+
+box-shadow:
+
+0 0 15px var(--red);
+
+}
+
+
+
+.hero h1{
+
+font-size:
+
+clamp(55px,9vw,120px);
+
+font-weight:900;
+
+letter-spacing:-7px;
+
+line-height:.9;
+
+animation:
+
+heroText 1s var(--ease);
+
+}
+
+
+
+.hero h1 span{
+
+color:var(--red);
+
+text-shadow:
+
+0 0 60px rgba(232,33,39,.4);
+
+}
+
+
+
+@keyframes heroText{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(40px);
+
+filter:blur(10px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+filter:none;
+
+}
+
+
+}
+
+
+
+.hero p{
+
+max-width:650px;
+
+margin-top:30px;
+
+font-size:18px;
+
+color:#999;
+
+}
+
+
+
+.hero-buttons{
+
+display:flex;
+
+gap:15px;
+
+margin-top:40px;
+
+}
+
+
+
+/* PRIMARY BUTTON */
+
+
+.primary-btn{
+
+padding:
+
+17px 38px;
+
+background:
+
+var(--red);
+
+border-radius:8px;
+
+font-weight:800;
+
+box-shadow:
+
+0 15px 50px rgba(232,33,39,.35);
+
+transition:
+
+.4s var(--ease);
+
+}
+
+
+
+.primary-btn:hover{
+
+transform:
+
+translateY(-5px)
+scale(1.03);
+
+box-shadow:
+
+0 25px 80px rgba(232,33,39,.55);
+
+}
+
+
+
+.primary-btn:active{
+
+transform:
+
+scale(.95);
+
+}
+
+
+
+/* SECOND BUTTON */
+
+
+.secondary-btn{
+
+padding:
+
+17px 38px;
+
+border:
+
+1px solid var(--border);
+
+border-radius:8px;
+
+background:
+
+rgba(255,255,255,.04);
+
+backdrop-filter:
+
+blur(15px);
+
+}
+
+
+
+.secondary-btn:hover{
+
+background:
+
+rgba(255,255,255,.12);
+
+}
+
+
+
+/* =========================
+FLOATING LIGHT EFFECT
+========================= */
+
+
+.hero-orb{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(40px);
+
+animation:
+
+orbMove 8s infinite alternate;
+
+}
+
+
+
+.hero-orb.red{
+
+width:500px;
+
+height:500px;
+
+right:-200px;
+
+top:150px;
+
+background:
+
+rgba(232,33,39,.22);
+
+}
+
+
+
+@keyframes orbMove{
+
+
+from{
+
+transform:
+
+translateY(0);
+
+}
+
+
+to{
+
+transform:
+
+translateY(-70px);
+
+}
+
+
+}
+
+
+/* =========================
+MOBILE RESPONSIVE
+========================= */
+
+
+@media(max-width:900px){
+
+
+.nav-links,
+.nav-buttons{
+
+display:none;
+
+}
+
+
+.menu-toggle{
+
+display:block;
+
+}
+
+
+.hero h1{
+
+letter-spacing:-3px;
+
+}
+
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+
+}
+
+
+/* ============================================================
+TESLA PRIME X
+PART 3/7
+LUXURY VEHICLE SHOWCASE
+============================================================ */
+
+
+/* =========================
+VEHICLE SECTION
+========================= */
+
+
+.vehicle-section{
+
+position:relative;
+
+background:
+
+radial-gradient(
+circle at center,
+rgba(232,33,39,.08),
+transparent 45%
+);
+
+}
+
+
+
+.vehicle-header{
+
+margin-bottom:60px;
+
+}
+
+
+
+/* =========================
+VEHICLE GRID
+========================= */
+
+
+.vehicle-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+/* =========================
+VEHICLE CARD
+========================= */
+
+
+.vehicle-card{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:20px;
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+box-shadow:
+
+0 25px 80px rgba(0,0,0,.45);
+
+
+transition:
+
+transform .5s var(--ease),
+border .4s ease,
+box-shadow .5s ease;
+
+
+}
+
+
+
+.vehicle-card:hover{
+
+transform:
+
+translateY(-15px);
+
+
+border-color:
+
+rgba(232,33,39,.5);
+
+
+box-shadow:
+
+0 40px 100px rgba(0,0,0,.7),
+0 0 40px rgba(232,33,39,.15);
+
+
+}
+
+
+
+/* =========================
+CAR IMAGE
+========================= */
+
+
+.vehicle-image{
+
+height:300px;
+
+position:relative;
+
+overflow:hidden;
+
+background:#111;
+
+}
+
+
+
+.vehicle-image img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+
+transition:
+
+transform .8s var(--ease);
+
+}
+
+
+
+.vehicle-card:hover .vehicle-image img{
+
+transform:
+
+scale(1.12);
+
+}
+
+
+
+/* IMAGE DARK OVERLAY */
+
+
+.vehicle-image::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+
+background:
+
+linear-gradient(
+
+to top,
+
+rgba(0,0,0,.9),
+
+transparent 60%
+
+);
+
+
+}
+
+
+
+/* =========================
+VEHICLE CONTENT
+========================= */
+
+
+.vehicle-content{
+
+padding:30px;
+
+}
+
+
+
+.vehicle-tag{
+
+font-size:10px;
+
+letter-spacing:3px;
+
+color:var(--red);
+
+text-transform:uppercase;
+
+font-weight:800;
+
+}
+
+
+
+.vehicle-name{
+
+font-size:28px;
+
+font-weight:900;
+
+letter-spacing:-1px;
+
+margin:
+
+8px 0;
+
+}
+
+
+
+.vehicle-description{
+
+font-size:13px;
+
+color:var(--muted);
+
+line-height:1.8;
+
+}
+
+
+
+/* =========================
+SPECIFICATIONS
+========================= */
+
+
+.vehicle-specs{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:10px;
+
+
+margin-top:25px;
+
+padding:
+
+20px 0;
+
+
+border-top:
+
+1px solid var(--border);
+
+border-bottom:
+
+1px solid var(--border);
+
+}
+
+
+
+.spec strong{
+
+display:block;
+
+font-size:18px;
+
+font-weight:900;
+
+}
+
+
+
+.spec span{
+
+display:block;
+
+font-size:9px;
+
+color:#777;
+
+text-transform:uppercase;
+
+letter-spacing:1px;
+
+}
+
+
+
+/* =========================
+BOTTOM AREA
+========================= */
+
+
+.vehicle-footer{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-top:25px;
+
+}
+
+
+
+.vehicle-price{
+
+font-size:24px;
+
+font-weight:900;
+
+}
+
+
+
+.vehicle-btn{
+
+width:42px;
+
+height:42px;
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border:
+
+1px solid var(--border);
+
+
+transition:.4s var(--ease);
+
+}
+
+
+
+.vehicle-btn:hover{
+
+background:var(--red);
+
+border-color:var(--red);
+
+
+transform:
+
+rotate(-45deg);
+
+}
+
+
+
+/* =========================
+CAR LIGHT EFFECT
+========================= */
+
+
+.vehicle-card::before{
+
+content:"";
+
+position:absolute;
+
+width:200px;
+
+height:200px;
+
+
+top:-100px;
+
+right:-100px;
+
+
+background:
+
+rgba(232,33,39,.18);
+
+
+filter:
+
+blur(70px);
+
+
+opacity:0;
+
+
+transition:.5s;
+
+}
+
+
+
+.vehicle-card:hover::before{
+
+opacity:1;
+
+}
+
+
+
+/* =========================
+SCROLL ENTRANCE
+========================= */
+
+
+.vehicle-card{
+
+animation:
+
+vehicleReveal .8s var(--ease);
+
+}
+
+
+
+@keyframes vehicleReveal{
+
+
+from{
+
+opacity:0;
+
+transform:
+
+translateY(40px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+
+}
+
+
+
+/* =========================
+FUTURISTIC VEHICLE GRID
+========================= */
+
+
+.vehicle-network{
+
+position:absolute;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:.15;
+
+
+background-image:
+
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.08) 1px,
+transparent 1px
+),
+
+
+linear-gradient(
+rgba(255,255,255,.08) 1px,
+transparent 1px
+);
+
+
+background-size:
+
+60px 60px;
+
+}
+
+
+
+/* =========================
+TABLET
+========================= */
+
+
+@media(max-width:1100px){
+
+
+.vehicle-grid{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+
+}
+
+
+
+/* =========================
+MOBILE
+========================= */
+
+
+@media(max-width:700px){
+
+
+.vehicle-grid{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+.vehicle-image{
+
+height:250px;
+
+}
+
+
+.vehicle-content{
+
+padding:22px;
+
+}
+
+
+.vehicle-name{
+
+font-size:24px;
+
+}
+
+
+}
+/* ============================================================
+TESLA PRIME X
+PART 4/7
+PREMIUM MEMBERSHIP + CRYPTO WALLET SYSTEM
+============================================================ */
+
+
+/* =========================
+MEMBERSHIP SECTION
+========================= */
+
+
+.membership-section{
+
+position:relative;
+
+background:
+
+radial-gradient(
+circle at 80% 20%,
+rgba(232,33,39,.1),
+transparent 40%
+);
+
+}
+
+
+
+.membership-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+/* =========================
+MEMBERSHIP CARD
+========================= */
+
+
+.membership-card{
+
+position:relative;
+
+padding:35px;
+
+min-height:460px;
+
+
+display:flex;
+
+flex-direction:column;
+
+
+border-radius:22px;
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.5);
+
+
+overflow:hidden;
+
+
+transition:
+
+transform .5s var(--ease),
+border .4s ease;
+
+}
+
+
+
+.membership-card:hover{
+
+transform:
+
+translateY(-12px);
+
+
+border-color:
+
+rgba(232,33,39,.5);
+
+}
+
+
+
+/* VIP CARD */
+
+
+.membership-card.vip{
+
+border-color:
+
+rgba(232,33,39,.8);
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(232,33,39,.15),
+rgba(255,255,255,.03)
+);
+
+
+box-shadow:
+
+0 0 60px rgba(232,33,39,.15);
+
+}
+
+
+
+/* =========================
+VIP BADGE
+========================= */
+
+
+.vip-badge{
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+
+padding:
+
+7px 12px;
+
+
+font-size:9px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+
+background:var(--red);
+
+border-radius:5px;
+
+
+box-shadow:
+
+0 0 25px rgba(232,33,39,.5);
+
+}
+
+
+
+/* =========================
+PLAN TEXT
+========================= */
+
+
+.plan-name{
+
+font-size:13px;
+
+letter-spacing:3px;
+
+color:#aaa;
+
+text-transform:uppercase;
+
+}
+
+
+
+.plan-price{
+
+font-size:48px;
+
+font-weight:900;
+
+letter-spacing:-3px;
+
+margin-top:15px;
+
+}
+
+
+
+.plan-price span{
+
+font-size:13px;
+
+color:#777;
+
+}
+
+
+
+/* =========================
+FEATURE LIST
+========================= */
+
+
+.plan-features{
+
+list-style:none;
+
+padding:0;
+
+margin:35px 0;
+
+}
+
+
+
+.plan-features li{
+
+font-size:13px;
+
+color:#aaa;
+
+margin-bottom:15px;
+
+padding-left:25px;
+
+position:relative;
+
+}
+
+
+
+.plan-features li::before{
+
+content:"✓";
+
+position:absolute;
+
+left:0;
+
+color:var(--green);
+
+font-weight:900;
+
+}
+
+
+
+/* BUTTON */
+
+
+.plan-btn{
+
+margin-top:auto;
+
+
+padding:
+
+15px;
+
+
+border-radius:8px;
+
+
+background:
+
+var(--red);
+
+
+text-align:center;
+
+
+font-weight:800;
+
+
+transition:.4s;
+
+}
+
+
+
+.plan-btn:hover{
+
+transform:
+
+translateY(-4px);
+
+
+box-shadow:
+
+0 20px 50px rgba(232,33,39,.45);
+
+}
+
+
+
+
+
+/* ============================================================
+INVESTMENT WALLET
+============================================================ */
+
+
+
+.wallet-section{
+
+padding-top:100px;
+
+}
+
+
+
+.wallet-container{
+
+display:grid;
+
+grid-template-columns:
+
+1fr 1fr;
+
+gap:30px;
+
+}
+
+
+
+/* =========================
+WALLET CARD
+========================= */
+
+
+.wallet-card{
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+background:
+
+rgba(255,255,255,.04);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+box-shadow:
+
+var(--shadow);
+
+}
+
+
+
+/* WALLET HEADER */
+
+
+.wallet-title{
+
+font-size:25px;
+
+font-weight:900;
+
+}
+
+
+
+.wallet-subtitle{
+
+color:#888;
+
+font-size:13px;
+
+margin-top:8px;
+
+}
+
+
+
+/* =========================
+CRYPTO BALANCE
+========================= */
+
+
+.crypto-balance{
+
+margin-top:30px;
+
+padding:25px;
+
+
+border-radius:15px;
+
+
+background:
+
+linear-gradient(
+135deg,
+rgba(232,33,39,.15),
+rgba(255,255,255,.03)
+);
+
+
+border:
+
+1px solid rgba(232,33,39,.3);
+
+}
+
+
+
+.crypto-name{
+
+font-size:11px;
+
+color:#aaa;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+
+
+.crypto-value{
+
+font-size:38px;
+
+font-weight:900;
+
+margin-top:10px;
+
+}
+
+
+
+.crypto-change{
+
+color:var(--green);
+
+font-size:12px;
+
+font-weight:700;
+
+}
+
+
+
+/* =========================
+WALLET ADDRESS BOX
+========================= */
+
+
+.wallet-address{
+
+margin-top:25px;
+
+
+padding:18px;
+
+
+border-radius:12px;
+
+
+background:
+
+#050505;
+
+
+border:
+
+1px solid var(--border);
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+}
+
+
+
+.wallet-address code{
+
+font-size:12px;
+
+color:#ccc;
+
+word-break:break-all;
+
+}
+
+
+
+.copy-btn{
+
+padding:
+
+10px 15px;
+
+
+border-radius:7px;
+
+
+background:
+
+var(--red);
+
+
+border:none;
+
+
+color:white;
+
+
+font-size:11px;
+
+font-weight:800;
+
+
+transition:.3s;
+
+}
+
+
+
+.copy-btn:hover{
+
+transform:
+
+scale(1.05);
+
+
+box-shadow:
+
+0 0 30px rgba(232,33,39,.5);
+
+}
+
+
+
+/* =========================
+PAYMENT OPTIONS
+========================= */
+
+
+.payment-methods{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+gap:15px;
+
+margin-top:25px;
+
+}
+
+
+
+.payment-box{
+
+padding:20px;
+
+
+border-radius:15px;
+
+
+background:
+
+rgb(255, 6, 6);
+
+
+border:
+
+1px solid var(--border);
+
+
+transition:.4s;
+
+}
+
+
+
+.payment-box:hover{
+
+border-color:
+
+var(--red);
+
+
+transform:
+
+translateY(-5px);
+
+}
+
+
+
+.payment-box h4{
+
+font-size:15px;
+
+}
+
+
+
+.payment-box span{
+
+font-size:18px;
+
+color:#777;
+
+}
+
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+
+@media(max-width:1000px){
+
+
+.membership-grid{
+
+grid-template-columns:
+
+1fr 1fr;
+
+}
+
+
+.wallet-container{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.membership-grid{
+
+grid-template-columns:
+
+1fr;
+color: #dfb108;
+}
+
+
+.payment-methods{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+.plan-price{
+
+font-size:40px;
+
+}
+
+
+}
+
+
+/* ============================================================
+TESLA PRIME X
+PART 5/7
+INVESTMENT DASHBOARD + TRADING TERMINAL
+============================================================ */
+
+
+/* =========================
+INVESTMENT DASHBOARD
+========================= */
+
+
+.investment-section{
+
+position:relative;
+
+background:
+
+radial-gradient(
+circle at 20% 40%,
+rgba(232,33,39,.08),
+transparent 45%
+);
+
+}
+
+
+
+.investment-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+/* =========================
+INVESTMENT CARD
+========================= */
+
+
+.investment-card{
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.07),
+rgba(255,255,255,.02)
+);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+blur(18px);
+
+
+transition:
+
+transform .45s var(--ease),
+border .4s ease;
+
+}
+
+
+
+.investment-card:hover{
+
+transform:
+
+translateY(-10px);
+
+
+border-color:
+
+rgba(232,33,39,.5);
+
+}
+
+
+
+/* FEATURED PLAN */
+
+
+.investment-card.featured{
+
+border-color:
+
+rgba(232,33,39,.7);
+
+
+box-shadow:
+
+0 0 50px rgba(232,33,39,.12);
+
+}
+
+
+
+/* =========================
+STATUS
+========================= */
+
+
+.investment-status{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.live-dot{
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+
+background:
+
+var(--green);
+
+
+box-shadow:
+
+0 0 20px var(--green);
+
+
+animation:
+
+pulseLive 2s infinite;
+
+}
+
+
+
+@keyframes pulseLive{
+
+
+50%{
+
+transform:scale(.6);
+
+opacity:.5;
+
+}
+
+
+}
+
+
+
+/* =========================
+INVESTMENT TITLE
+========================= */
+
+
+.investment-name{
+
+font-size:20px;
+
+font-weight:900;
+
+margin-top:20px;
+
+}
+
+
+
+.investment-label{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+color:#777;
+
+text-transform:uppercase;
+
+}
+
+
+
+.investment-value{
+
+font-size:38px;
+
+font-weight:900;
+
+margin-top:25px;
+
+letter-spacing:-2px;
+
+}
+
+
+
+.investment-growth{
+
+color:var(--green);
+
+font-size:12px;
+
+font-weight:700;
+
+}
+
+
+
+/* =========================
+PROGRESS BAR
+========================= */
+
+
+.progress-bar{
+
+height:5px;
+
+margin-top:25px;
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+
+
+.progress-bar span{
+
+display:block;
+
+height:100%;
+
+
+width:75%;
+
+
+background:
+
+linear-gradient(
+90deg,
+var(--red),
+#ff7272
+);
+
+
+box-shadow:
+
+0 0 15px var(--red);
+
+
+animation:
+
+progressLoad 1.5s var(--ease);
+
+}
+
+
+
+@keyframes progressLoad{
+
+
+from{
+
+width:0;
+
+}
+
+
+}
+
+
+
+/* ============================================================
+TRADING TERMINAL
+============================================================ */
+
+
+.market-terminal{
+
+margin-top:50px;
+
+
+border-radius:22px;
+
+
+overflow:hidden;
+
+
+background:
+
+#060606;
+
+
+border:
+
+1px solid var(--border);
+
+
+box-shadow:
+
+0 40px 100px rgba(0,0,0,.7);
+
+}
+
+
+
+/* HEADER */
+
+
+.terminal-header{
+
+height:65px;
+
+
+padding:
+
+0 25px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+
+border-bottom:
+
+1px solid var(--border);
+
+background:
+
+rgba(255,255,255,.03);
+
+}
+
+
+
+.terminal-title{
+
+font-size:12px;
+
+letter-spacing:2px;
+
+color:#888;
+
+text-transform:uppercase;
+
+}
+
+
+
+.market-live{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+
+font-size:10px;
+
+font-weight:800;
+
+color:var(--green);
+
+text-transform:uppercase;
+
+}
+
+
+
+/* =========================
+STAT BOXES
+========================= */
+
+
+.market-stats{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(4,1fr);
+
+
+gap:15px;
+
+
+padding:25px;
+
+}
+
+
+
+.market-stat{
+
+padding:20px;
+
+
+border-radius:12px;
+
+
+background:
+
+rgba(255,255,255,.04);
+
+
+border:
+
+1px solid var(--border);
+
+}
+
+
+
+.market-stat small{
+
+font-size:10px;
+
+color:#777;
+
+letter-spacing:1px;
+
+}
+
+
+
+.market-stat strong{
+
+display:block;
+
+font-size:22px;
+
+margin-top:10px;
+
+}
+
+
+
+.positive{
+
+color:var(--green);
+
+}
+
+
+
+.negative{
+
+color:#ff5252;
+
+}
+
+
+
+/* =========================
+CHART AREA
+========================= */
+
+
+.chart-container{
+
+height:380px;
+
+margin:0 25px 25px;
+
+
+border-radius:15px;
+
+
+border:
+
+1px solid var(--border);
+
+
+background:
+
+
+linear-gradient(
+rgba(255,255,255,.03) 1px,
+transparent 1px
+),
+
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.03) 1px,
+transparent 1px
+);
+
+
+background-size:
+50px 50px;
+
+
+position:relative;
+
+
+overflow:hidden;
+
+}
+
+
+
+/* FAKE GRAPH LINE */
+
+
+.chart-line{
+
+position:absolute;
+
+
+bottom:80px;
+
+left:40px;
+
+right:40px;
+
+
+height:2px;
+
+
+background:
+
+var(--red);
+
+
+box-shadow:
+
+0 0 20px var(--red);
+
+
+transform:
+
+skewY(-12deg);
+
+
+animation:
+
+chartMove 3s infinite alternate;
+
+}
+
+
+
+@keyframes chartMove{
+
+
+from{
+
+transform:
+
+skewY(-8deg)
+translateY(20px);
+
+}
+
+
+to{
+
+transform:
+
+skewY(-12deg)
+translateY(-20px);
+
+}
+
+
+}
+
+
+
+/* =========================
+PORTFOLIO TABLE
+========================= */
+
+
+.portfolio-list{
+
+padding:25px;
+
+}
+
+
+
+.portfolio-item{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+
+padding:18px 0;
+
+
+border-bottom:
+
+1px solid rgba(255,255,255,.06);
+
+}
+
+
+
+.portfolio-item:last-child{
+
+border:none;
+
+}
+
+
+
+.asset-name{
+
+font-weight:700;
+
+}
+
+
+
+.asset-price{
+
+color:#aaa;
+
+font-size:13px;
+
+}
+
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+
+@media(max-width:1100px){
+
+
+.investment-grid{
+
+grid-template-columns:
+
+1fr 1fr;
+
+}
+
+
+.market-stats{
+
+grid-template-columns:
+
+1fr 1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.investment-grid{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+.market-stats{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+.chart-container{
+
+height:280px;
+
+}
+
+
+}
+
+
+/* ============================================================
+TESLA PRIME X
+PART 6/7
+FAQ + PREMIUM EXPERIENCE + FUTURISTIC NETWORK
+============================================================ */
+
+
+/* =========================
+FAQ SECTION
+========================= */
+
+
+.faq-section{
+
+position:relative;
+
+}
+
+
+
+.faq-container{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+
+
+.faq-item{
+
+border:
+
+1px solid var(--border);
+
+
+border-radius:15px;
+
+
+margin-bottom:15px;
+
+
+background:
+
+rgba(255,255,255,.04);
+
+
+overflow:hidden;
+
+
+transition:.4s var(--ease);
+
+}
+
+
+
+.faq-item:hover{
+
+border-color:
+
+rgba(232,33,39,.4);
+
+}
+
+
+
+.faq-question{
+
+width:100%;
+
+
+padding:
+
+22px 25px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+
+background:none;
+
+
+border:none;
+
+
+color:white;
+
+
+font-size:15px;
+
+font-weight:700;
+
+text-align:left;
+
+}
+
+
+
+.faq-icon{
+
+width:28px;
+
+height:28px;
+
+
+border-radius:50%;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+background:
+
+rgba(232,33,39,.15);
+
+
+color:var(--red);
+
+
+transition:.4s;
+
+}
+
+
+
+.faq-answer{
+
+max-height:0;
+
+overflow:hidden;
+
+
+padding:0 25px;
+
+
+color:#999;
+
+
+font-size:14px;
+
+
+line-height:1.8;
+
+
+transition:
+
+max-height .5s ease,
+padding .5s ease;
+
+}
+
+
+
+.faq-item.active .faq-answer{
+
+max-height:200px;
+
+
+padding-bottom:25px;
+
+}
+
+
+
+.faq-item.active .faq-icon{
+
+transform:
+
+rotate(45deg);
+
+
+background:var(--red);
+
+color:white;
+
+}
+
+
+
+/* ============================================================
+PREMIUM EXPERIENCE
+============================================================ */
+
+
+.experience-section{
+
+position:relative;
+
+overflow:hidden;
+
+
+background:
+
+
+radial-gradient(
+
+circle at center,
+
+rgba(232,33,39,.12),
+
+transparent 50%
+
+);
+
+}
+
+
+
+/* MOVING NETWORK */
+
+
+.vehicle-network{
+
+position:absolute;
+
+inset:0;
+
+
+opacity:.15;
+
+
+background-image:
+
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.08) 1px,
+transparent 1px
+),
+
+
+linear-gradient(
+rgba(255,255,255,.08) 1px,
+transparent 1px
+);
+
+
+background-size:
+
+70px 70px;
+
+
+animation:
+
+networkMove 20s linear infinite;
+
+}
+
+
+
+@keyframes networkMove{
+
+
+from{
+
+background-position:
+
+0 0;
+
+}
+
+
+to{
+
+background-position:
+
+70px 70px;
+
+}
+
+
+}
+
+
+
+/* =========================
+FEATURE GRID
+========================= */
+
+
+.feature-grid{
+
+position:relative;
+
+z-index:2;
+
+
+display:grid;
+
+grid-template-columns:
+
+repeat(3,1fr);
+
+
+gap:25px;
+
+}
+
+
+
+.feature-card{
+
+padding:35px;
+
+
+border-radius:20px;
+
+
+background:
+
+linear-gradient(
+
+145deg,
+
+rgba(255,255,255,.08),
+
+rgba(255,255,255,.02)
+
+);
+
+
+border:
+
+1px solid var(--border);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+transition:
+
+transform .5s var(--ease),
+box-shadow .5s ease,
+border .4s ease;
+
+}
+
+
+
+.feature-card:hover{
+
+transform:
+
+translateY(-12px);
+
+
+border-color:
+
+rgba(232,33,39,.5);
+
+
+box-shadow:
+
+0 30px 80px rgba(0,0,0,.6),
+0 0 40px rgba(232,33,39,.12);
+
+}
+
+
+
+.feature-icon{
+
+width:55px;
+
+height:55px;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:15px;
+
+
+background:
+
+rgba(232,33,39,.12);
+
+
+color:var(--red);
+
+
+font-size:24px;
+
+
+margin-bottom:25px;
+
+}
+
+
+
+.feature-card h3{
+
+font-size:22px;
+
+font-weight:900;
+
+
+}
+
+
+
+.feature-card p{
+
+color:#888;
+
+font-size:14px;
+
+margin-top:15px;
+
+line-height:1.8;
+
+}
+
+
+
+/* =========================
+FUTURISTIC LIGHT TRAILS
+========================= */
+
+
+.light-trail{
+
+position:absolute;
+
+
+height:2px;
+
+
+width:300px;
+
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+var(--red),
+
+transparent
+
+);
+
+
+filter:
+
+drop-shadow(0 0 15px var(--red));
+
+
+animation:
+
+trailMove 5s infinite;
+
+}
+
+
+
+@keyframes trailMove{
+
+
+from{
+
+transform:
+
+translateX(-500px);
+
+opacity:0;
+
+}
+
+
+50%{
+
+opacity:1;
+
+}
+
+
+to{
+
+transform:
+
+translateX(1500px);
+
+opacity:0;
+
+}
+
+
+}
+
+
+
+/* =========================
+LUXURY EXPERIENCE TITLE
+========================= */
+
+
+.experience-title{
+
+position:relative;
+
+z-index:2;
+
+
+font-size:
+
+clamp(40px,6vw,90px);
+
+
+font-weight:900;
+
+
+letter-spacing:-5px;
+
+
+line-height:.95;
+
+}
+
+
+
+.experience-title span{
+
+color:var(--red);
+
+
+text-shadow:
+
+0 0 50px rgba(232,33,39,.35);
+
+}
+
+
+
+/* =========================
+RESPONSIVE
+========================= */
+
+
+@media(max-width:1000px){
+
+    .feature-grid{
+
+grid-template-columns:
+
+1fr 1fr;
+
+}
+
+
+}
+
+
+
+@media(max-width:700px){
+
+
+.feature-grid{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+.experience-title{
+
+letter-spacing:-2px;
+
+}
+
+
+.faq-question{
+
+font-size:14px;
+
+}
+
+
+}
+
+
+/* ============================================================
+TESLA PRIME X BTC / USDT INVESTMENT WALLET
+============================================================ */
+
+.wallet-section {
+    position: relative;
+    padding: 120px 0;
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(232, 33, 39, 0.08),
+            transparent 35%
+        ),
+        #030303;
+}
+
+.wallet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-top: 40px;
+}
+
+.wallet-card {
+    position: relative;
+    padding: 32px;
+    min-height: 330px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.02)
+        );
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45);
+
+    transition:
+        transform .5s var(--ease),
+        border-color .4s ease,
+        box-shadow .5s ease;
+}
+
+.wallet-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255,255,255,.22);
+
+    box-shadow:
+        0 35px 90px rgba(0,0,0,.6);
+}
+
+
+/* ============================================================
+WALLET HEADER
+============================================================ */
+
+.wallet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.wallet-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.wallet-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: 900;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.04);
+}
+
+.wallet-name {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.wallet-network {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #666;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+BTC
+============================================================ */
+
+.wallet-card.btc {
+    border-color:
+        rgb(237, 139, 18);
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(247,147,26,.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.015)
+        );
+}
+
+.wallet-card.btc .wallet-icon {
+    color: #f7931a;
+
+    border-color:
+        rgba(247,147,26,.35);
+
+    box-shadow:
+        0 0 25px rgba(247,147,26,.15);
+}
+
+
+/* ============================================================
+USDT
+============================================================ */
+
+.wallet-card.usdt {
+    border-color:
+        rgba(15, 236, 166, 0.22);
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(38,161,123,.13),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(5, 196, 217, 0.925),
+            rgba(255,255,255,.015)
+        );
+}
+
+.wallet-card.usdt .wallet-icon {
+    color: #26a17b;
+
+    border-color:
+        rgba(38,161,123,.35);
+
+    box-shadow:
+        0 0 25px rgba(38,161,123,.15);
+}
+
+
+/* ============================================================
+WALLET BALANCE
+============================================================ */
+
+.wallet-balance-label {
+    color: #e0bc04;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.wallet-balance {
+    margin-top: 6px;
+
+    font-size: 38px;
+    font-weight: 900;
+
+    letter-spacing: -2px;
+}
+
+.wallet-balance span {
+    color: #777;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    letter-spacing: 0;
+}
+
+/* ============================================================
+WALLET ADDRESS
+============================================================ */
+
+.wallet-address-label {
+    display: block;
+
+    margin-top: 25px;
+    margin-bottom: 8px;
+
+    color: #666;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.wallet-address {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 13px 15px;
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 9px;
+
+    background:
+        rgba(0,0,0,.4);
+
+    color: #999;
+
+    font-family:
+        monospace;
+
+    font-size: 11px;
+
+    overflow: hidden;
+}
+
+.wallet-address span {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+COPY BUTTON
+============================================================ */
+
+.wallet-copy {
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    transition: .3s ease;
+}
+
+.wallet-copy:hover {
+    background: var(--red);
+
+    border-color:
+        var(--red);
+
+    box-shadow:
+        0 0 20px rgba(232,33,39,.25);
+}
+
+
+/* ============================================================
+WALLET ACTIONS
+============================================================ */
+
+.wallet-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.wallet-action {
+    flex: 1;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    border-radius: 8px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
+}
+
+.wallet-action:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(255,255,255,.1);
+
+    border-color:
+        rgba(255,255,255,.25);
+}
+
+.wallet-action.primary {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 8px 25px rgba(232,33,39,.2);
+}
+
+.wallet-action.primary:hover {
+    background: var(--red-bright);
+
+    box-shadow:
+        0 12px 35px rgba(232,33,39,.35);
+}
+
+
+/* ============================================================
+WALLET STATUS
+============================================================ */
+
+.wallet-status {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+    color: #777;
+
+    font-size: 9px;
+}
+
+.wallet-status-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 10px var(--green);
+
+    animation:
+        walletPulse 2s infinite;
+}
+
+@keyframes walletPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .45;
+        transform: scale(.7);
+    }
+}
+
+
+/* ============================================================
+MOBILE WALLET
+============================================================ */
+
+@media (max-width: 768px) {
+
+    .wallet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wallet-card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .wallet-balance {
+        font-size: 32px;
+    }
+
+    .wallet-address {
+        font-size: 10px;
+    }
+
+}
+/* ============================================================
+TESLA PRIME X
+PART 7/7 — RESPONSIVE + PERFORMANCE + FOOTER FINAL POLISH
+============================================================ */
+
+
+/* ============================================================
+RESPONSIVE TABLET
+============================================================ */
+
+@media (max-width: 1100px){
+
+.nav-links{
+display:none;
+}
+
+
+.hero h1{
+
+font-size:
+clamp(50px,8vw,90px);
+
+}
+
+
+.vehicle-grid,
+.membership-grid,
+.investment-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+
+.market-stats{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+
+.dashboard-container{
+
+padding:20px;
+
+}
+
+}
+
+
+
+/* ============================================================
+MOBILE NAVIGATION
+============================================================ */
+
+
+.menu-toggle{
+
+display:none;
+
+width:42px;
+height:42px;
+
+border:
+
+1px solid var(--border);
+
+border-radius:8px;
+
+background:
+
+rgba(255,255,255,.05);
+
+align-items:center;
+justify-content:center;
+
+flex-direction:column;
+
+gap:5px;
+
+}
+
+
+
+.menu-toggle span{
+
+width:20px;
+
+height:2px;
+
+background:white;
+
+transition:.3s;
+
+}
+
+
+
+.mobile-menu{
+
+position:fixed;
+
+top:80px;
+
+left:0;
+
+right:0;
+
+background:
+
+rgba(0,0,0,.92);
+
+backdrop-filter:
+
+blur(20px);
+
+padding:30px;
+
+display:none;
+
+flex-direction:column;
+
+gap:25px;
+
+z-index:999;
+
+border-bottom:
+
+1px solid var(--border);
+
+}
+
+
+
+.mobile-menu a{
+
+font-size:18px;
+
+color:#ccc;
+
+}
+
+
+
+.mobile-menu a:hover{
+
+color:white;
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+.menu-toggle{
+
+display:flex;
+
+}
+
+
+.nav-buttons{
+
+display:none;
+
+}
+
+
+
+.mobile-menu.active{
+
+display:flex;
+
+animation:
+
+mobileOpen .4s var(--ease);
+
+}
+
+
+@keyframes mobileOpen{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(-20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+
+
+
+.hero{
+
+min-height:
+
+90vh;
+
+}
+
+
+.hero-content{
+
+padding-top:100px;
+
+}
+
+
+
+.hero h1{
+
+font-size:
+
+55px;
+
+letter-spacing:-3px;
+
+line-height:.95;
+
+}
+
+
+
+.hero p{
+
+font-size:15px;
+
+}
+
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+
+
+.primary-btn,
+.secondary-btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+
+
+
+
+/* VEHICLES */
+
+
+.vehicle-grid,
+.membership-grid,
+.investment-grid{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+
+.vehicle-card{
+
+border-radius:
+
+25px;
+
+}
+
+
+
+.vehicle-image{
+
+height:240px;
+
+}
+
+
+
+
+
+/* WALLET */
+
+
+.wallet-grid{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+
+.wallet-address{
+
+font-size:
+
+12px;
+
+overflow:hidden;
+
+}
+
+
+
+
+
+/* DASHBOARD */
+
+
+.market-stats{
+
+grid-template-columns:
+
+1fr;
+
+}
+
+
+
+.chart-wrapper{
+
+height:
+
+250px;
+
+}
+
+
+
+
+
+/* FAQ */
+
+
+.faq-item{
+
+padding:
+
+20px;
+
+}
+
+
+
+}
+
+
+/* ============================================================
+SMALL MOBILE
+============================================================ */
+
+
+@media(max-width:480px){
+
+
+.logo{
+
+font-size:
+
+16px;
+
+letter-spacing:
+
+2px;
+
+}
+
+
+
+.hero h1{
+
+font-size:
+
+45px;
+
+}
+
+
+
+.section-title{
+
+font-size:
+
+35px;
+
+}
+
+
+
+.membership-price{
+
+font-size:
+
+35px;
+
+}
+
+
+
+.vehicle-card,
+.membership-card,
+.investment-card{
+
+padding:
+
+22px;
+
+}
+
+
+
+}
+
+
+/* ============================================================
+PERFORMANCE OPTIMIZATION
+============================================================ */
+
+
+.vehicle-card,
+.membership-card,
+.investment-card,
+.wallet-card,
+.dashboard-card{
+
+
+will-change:
+
+transform;
+
+
+}
+
+
+
+img{
+
+content-visibility:
+
+auto;
+
+}
+
+
+
+@media(prefers-reduced-motion:reduce){
+
+
+*,
+*::before,
+*::after{
+
+
+animation-duration:
+
+0.01ms!important;
+
+
+transition-duration:
+
+0.01ms!important;
+
+
+scroll-behavior:
+
+auto!important;
+
+
+}
+
+
+}
+
+
+
+/* ============================================================
+PREMIUM FOOTER
+============================================================ */
+
+
+.prime-footer{
+
+
+background:
+
+linear-gradient(
+
+180deg,
+
+#050505,
+
+#000
+
+);
+
+
+border-top:
+
+1px solid var(--border);
+
+
+padding:
+
+70px 0 30px;
+
+
+position:relative;
+
+
+overflow:hidden;
+
+
+}
+
+
+
+.prime-footer::before{
+
+
+content:"";
+
+
+position:absolute;
+
+
+width:500px;
+
+height:500px;
+
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(232,33,39,.12),
+
+transparent 70%
+
+);
+
+
+top:-250px;
+
+left:50%;
+
+
+transform:
+
+translateX(-50%);
+
+
+}
+
+
+
+
+
+.footer-container{
+
+
+width:min(92%,1300px);
+
+
+margin:auto;
+
+position:relative;
+
+
+z-index:2;
+
+
+}
+
+
+
+
+
+.footer-brand{
+
+
+font-size:
+
+25px;
+
+
+font-weight:
+
+900;
+
+
+letter-spacing:
+
+4px;
+
+
+}
+
+
+
+.footer-brand span{
+
+
+color:
+
+var(--red);
+
+
+}
+
+
+
+
+
+.footer-links{
+
+
+display:flex;
+
+
+gap:35px;
+
+
+flex-wrap:wrap;
+
+
+margin-top:30px;
+
+
+}
+
+
+
+.footer-links a{
+
+
+color:#888;
+
+
+font-size:13px;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.footer-links a:hover{
+
+
+color:white;
+
+
+}
+
+
+
+
+
+.footer-bottom{
+
+
+margin-top:50px;
+
+
+padding-top:25px;
+
+
+border-top:
+
+
+1px solid var(--border);
+
+
+color:#666;
+
+
+font-size:12px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+/* ============================================================
+FINAL GLOBAL POLISH
+============================================================ */
+
+
+.glow{
+
+text-shadow:
+
+0 0 25px rgba(232,33,39,.5);
+
+}
+
+
+
+.glass{
+
+background:
+
+rgba(255,255,255,.05);
+
+
+backdrop-filter:
+
+blur(20px);
+
+
+border:
+
+1px solid var(--border);
+
+
+}
+
+
+
+.smooth{
+
+transition:
+
+all .4s var(--ease);
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+/* END TESLA PRIME X CSS SYSTEM */
