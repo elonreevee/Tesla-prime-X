@@ -5114,3 +5114,10 @@ display:none;
     visibility: visible !important;
     opacity: 1 !important;
 }
+.faq-answer {
+    display: none;
+}
+
+.faq-question {
+    cursor: pointer;
+}
