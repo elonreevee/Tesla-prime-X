@@ -5184,23 +5184,23 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.beginner h3 {
-    color: #66bb6a;
+    color: #00ff0d;
     font-size: 26px;
     margin-bottom: 15px;
 }
 
 .plan.beginner strong {
-    color: #ffffff;
+    color: #000000;
     font-size: 21px;
 }
 
 .plan.beginner p {
-    color: #d7f5df;
+    color: #33e465;
 }
 /* Pro */
  .plan.pro {
     background: #0b1f3a;
-    border: 2px solid #4da6ff;
+    border: 2px solid #00659c;
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(77, 166, 255, 0.25);
@@ -5213,7 +5213,7 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.pro strong {
-    color: #ffffff;
+    color: #000000;
     font-size: 22px;
 }
 
@@ -5231,7 +5231,7 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.vip h3 {
-    color: #ffd700;
+    color: #000000;
     font-size: 28px;
 }
 
