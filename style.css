@@ -5190,7 +5190,7 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.beginner strong {
-    color: #000000;
+    color: #f5eeee;
     font-size: 21px;
 }
 
@@ -5213,7 +5213,7 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.pro strong {
-    color: #000000;
+    color: #fffefe;
     font-size: 22px;
 }
 
@@ -5231,7 +5231,7 @@ details.faq-item[open] .faq-icon {
 }
 
 .plan.vip h3 {
-    color: #000000;
+    color: #f7f3f3;
     font-size: 28px;
 }
 
