@@ -5121,3 +5121,17 @@ display:none;
 .faq-question {
     cursor: pointer;
 }
+details.faq-item > summary {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+details.faq-item[open] .faq-answer {
+    display: block !important;
+}
+
+details.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
