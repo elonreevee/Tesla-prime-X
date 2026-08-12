@@ -5128,8 +5128,10 @@ details.faq-item > summary {
     align-items: center;
 }
 
-details.faq-item[open] .faq-answer {
+ details.faq-item[open] .faq-answer {
     display: block !important;
+    max-height: 500px !important;
+    padding-bottom: 25px !important;
 }
 
 details.faq-item[open] .faq-icon {
