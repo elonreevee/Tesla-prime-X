@@ -5137,3 +5137,30 @@ details.faq-item > summary {
 details.faq-item[open] .faq-icon {
     transform: rotate(45deg);
 }
+.plan.beginner {
+    border: 2px solid #4caf50;
+    border-radius: 20px;
+    padding: 25px;
+    background: linear-gradient(145deg, #102015, #0b120e);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.20);
+}
+
+.plan.beginner h3 {
+    color: #66bb6a;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.plan.beginner strong {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.plan.beginner::before {
+    content: "STARTER PLAN";
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #81c784;
+    margin-bottom: 10px;
+}
