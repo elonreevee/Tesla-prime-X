@@ -535,7 +535,7 @@ justify-content:space-between;
 
 .logo{
 
-font-size:20px;
+font-size:40px;
 
 font-weight:900;
 
@@ -5113,4 +5113,11 @@ display:none;
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
+}
+.faq-answer {
+    display: none;
+}
+
+.faq-question {
+    cursor: pointer;
 }
