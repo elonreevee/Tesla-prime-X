@@ -5175,31 +5175,66 @@ details.faq-item[open] .faq-icon {
 }
 
 /* Beginner */
-.plan.beginner {
-    background: #e8f5e9;
-    border-color: #43a047;
+ .plan.beginner {
+    background: #0f2a1a;
+    border: 2px solid #4caf50;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.20);
 }
 
 .plan.beginner h3 {
-    color: #2e7d32;
+    color: #66bb6a;
+    font-size: 26px;
+    margin-bottom: 15px;
 }
 
+.plan.beginner strong {
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.plan.beginner p {
+    color: #d7f5df;
+}
 /* Pro */
-.plan.pro {
-    background: #e3f2fd;
-    border-color: #1976d2;
+ .plan.pro {
+    background: #0b1f3a;
+    border: 2px solid #4da6ff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(77, 166, 255, 0.25);
 }
 
 .plan.pro h3 {
-    color: #1565c0;
+    color: #66b3ff;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.plan.pro strong {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.plan.pro p {
+    color: #d9e9ff;
 }
 
 /* VIP */
-.plan.vip {
-    background: #fff8e1;
-    border-color: #d4a017;
+ .plan.vip {
+    background: #302a13;
+    border: 2px solid #d4a017;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(212, 160, 23, 0.25);
 }
 
 .plan.vip h3 {
-    color: #b8860b;
+    color: #ffd700;
+    font-size: 28px;
+}
+
+.plan.vip strong {
+    color: #ffd700;
 }
