@@ -5164,3 +5164,42 @@ details.faq-item[open] .faq-icon {
     color: #81c784;
     margin-bottom: 10px;
 }
+/* Investment Plan Designs */
+
+.plan {
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 15px;
+    border: 2px solid;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Beginner */
+.plan.beginner {
+    background: #e8f5e9;
+    border-color: #43a047;
+}
+
+.plan.beginner h3 {
+    color: #2e7d32;
+}
+
+/* Pro */
+.plan.pro {
+    background: #e3f2fd;
+    border-color: #1976d2;
+}
+
+.plan.pro h3 {
+    color: #1565c0;
+}
+
+/* VIP */
+.plan.vip {
+    background: #fff8e1;
+    border-color: #d4a017;
+}
+
+.plan.vip h3 {
+    color: #b8860b;
+}
