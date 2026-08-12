@@ -5092,3 +5092,20 @@ display:none;
 
 
 /* END TESLA PRIME X CSS SYSTEM */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-auth a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.nav-signup {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
