@@ -5109,3 +5109,8 @@ display:none;
     visibility: visible !important;
     opacity: 1 !important;
 }
+.nav-auth a[href="login.html"] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
